@@ -37,7 +37,7 @@ Develop a Node.js application using Express that scrapes product data from an eB
     }
    ````
 - POST /api/scrape-ebay
-  #### Input
+  #### Input Model
   ````
   {
     "keyword":"electric hair straitner"
