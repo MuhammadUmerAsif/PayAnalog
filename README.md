@@ -8,6 +8,23 @@ Create a Web Scraper for eBay Products and an API
 
 Develop a Node.js application using Express that scrapes product data from an eBay products page and stores it in a PostgreSQL database. Then, expose an endpoint to retrieve this data.
 
+## Setup Project
+
+- clone the repo to your local pc
+- install the libraries
+- ````
+  npm install
+  ````
+- run the project
+- ````
+  npm start
+  ````
+- Now setup the database **Note:** Please make sure docker is installed on your pc
+- ````
+  #run this command
+  docker-compose up -d
+  ````
+
 ## API Reference
 
  - GET /api/products
