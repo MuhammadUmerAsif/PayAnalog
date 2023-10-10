@@ -1,14 +1,29 @@
 const Ebay_products = require('../model/Ebayproduct')
 const puppeteer = require('puppeteer');
+const _=require('lodash')
+
+/**
+ * Get all the products from database
+ */
 
 exports.getAllProducts = async (req, res) => {
     try {
         const products = await Ebay_products.findAll()
+        console.log(products)
+        if(_.isEmpty(products))
+        {
+            res.json({message:"There is no data in database"})
+        }
         res.json({ data: products })
     } catch (err) {
         console.error(err.message)
     }
 }
+
+/**
+ * Scrape the ebay product page by searching the product using keyword
+ * @param {keyword} req 
+ */
 
 exports.scrapeEbayPage = async (req, res) => {
     try {
@@ -18,10 +33,10 @@ exports.scrapeEbayPage = async (req, res) => {
         {
         data.splice(0,1)
         await saveProduct(data)
-        res.json({message:"Product Data scrape & saved Successfull"})
+        res.json({message:"Product Data scrape & saved Successfully"})
         }
         else{
-            res.send("Product Not found")
+            res.send({message:"Product Not found"})
         }
         }catch(err)
         {
